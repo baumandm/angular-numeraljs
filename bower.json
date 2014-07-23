@@ -2,6 +2,6 @@
   "name": "angular-numeraljs",
   "version": "0.1.0",
   "main": ["./src/angular-numeraljs.js"],
-  "ignore": ["bower.json"],
+  "ignore": [],
   "dependencies": {}
 } 
