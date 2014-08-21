@@ -1,7 +1,26 @@
 {
-  "name": "angular-numeraljs",
-  "version": "0.1.0",
-  "main": ["./src/angular-numeraljs.js"],
-  "ignore": [],
-  "dependencies": {}
+    "name": "angular-numeraljs",
+    "author": "Dave Bauman",
+    "version": "1.0.0",
+    "license": "MIT",
+    "main": ["./dist/angular-numeraljs.js"],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:baumandm/angular-numeraljs.git"
+    },
+    "dependencies": {
+        "numeral": "^1.0"
+    },
+    "keywords": [
+        "numeral",
+        "numeraljs",
+        "angular",
+        "angularjs"
+    ],
+    "ignore": [
+        "test",
+        "bower_components",
+        "bower.json",
+        "gruntfile.js"
+    ]
 } 
