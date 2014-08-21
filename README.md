@@ -26,6 +26,14 @@ var myApp = angular.module('myApp', ['ngNumeraljs']);
     </p>
 ```
 
+## Bower
+
+This filter can be installed via Bower with the following dependency in the `bower.json` file.
+
+    "dependencies": {
+        "angular-numeraljs": "^1.0"
+    }
+
 ## Building
 
 1. Install [Grunt CLI](http://gruntjs.com/getting-started) and [Node.js](http://nodejs.org/)
