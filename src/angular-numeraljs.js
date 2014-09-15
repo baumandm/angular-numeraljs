@@ -1,16 +1,21 @@
 /*global numeral */
 'use strict';
+
 angular.module('ngNumeraljs', [])
     .filter('numeraljs', function () {
         return function (input, format, language) {
-            if (input == null || format == null) 
+            if (!input || !format) {
                 return input;
-            if (format === '') 
-                return '';
-            if (language != null)
-                numeral.language(language);
+            }
 
-            
+            if (!format) {
+                return input;
+            }
+
+            if (language) {
+                numeral.language(language);
+            }
+
             return numeral(input).format(format);
         };
     });
