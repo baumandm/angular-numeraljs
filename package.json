@@ -1,7 +1,7 @@
 {
     "name": "angular-numeraljs",
     "description": "AngularJS filter for Numeral.js: number formatting as a filter",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "homepage": "https://github.com/baumandm/angular-numeraljs",
     "author": "Dave Bauman <baumandm@gmail.com>",
     "repository": {
