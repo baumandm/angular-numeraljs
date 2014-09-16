@@ -8,10 +8,6 @@ angular.module('ngNumeraljs', [])
                 return input;
             }
 
-            if (!format) {
-                return '';
-            }
-
             if (language) {
                 numeral.language(language);
             }
