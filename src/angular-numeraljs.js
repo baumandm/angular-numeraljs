@@ -9,7 +9,7 @@ angular.module('ngNumeraljs', [])
             }
 
             if (!format) {
-                return input;
+                return '';
             }
 
             if (language) {
