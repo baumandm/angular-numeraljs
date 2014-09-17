@@ -1,5 +1,6 @@
 /*global module, inject, beforeEach, expect, describe, it */
 'use strict';
+
 describe('numeraljs', function () {
 
     beforeEach(module('ngNumeraljs'));
@@ -52,7 +53,5 @@ describe('numeraljs', function () {
             expect(numeraljsFilter('2048', '0,0', 'de')).toEqual('2 048');
             expect(numeraljsFilter('1024.34', '0.0', 'de')).toEqual('1024,3');
         });
-
     });
-
 });
