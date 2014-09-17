@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+	<script src="../test/lib/numeral.js"></script>
+	<script src="../test/lib/angular/angular.js"></script>
+	<script src="../src/angular-numeraljs.js"></script>
+
+	<script src="js/app.js"></script>
+</head>
+<body ng-controller="numeralExample">
+	<div>
+		<input type="text" ng-model="number" placeholder="Put the number here" />
+	</div>
+	<div>
+		<label>Number - '0,0.0000'</lable>
+		<span>{{number|numeraljs:'0,0.0000'}}</span>
+	</div>
+	<div>
+		<label>Currency - '0,0.0000'</lable>
+		<span>{{number|numeraljs:'$0,0.00'}}</span>
+	</div>
+	<div>
+		<label>Bytes - '0b'</lable>
+		<span>{{number|numeraljs:'0b'}}</span>
+	</div>
+	<div>
+		<label>Percentages - '0%'</lable>
+		<span>{{number|numeraljs:'0%'}}</span>
+	</div>
+	<div>
+		<label>Time - '00:00:00'</lable>
+		<span>{{number|numeraljs:'00:00:00'}}</span>
+	</div>
+</body>
+</html>
