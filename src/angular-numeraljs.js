@@ -30,16 +30,12 @@ angular.module('ngNumeraljs', [])
         };
     })
     .filter('numeraljs', function ($numeraljsConfig) {
-        return function (input, format, language) {
+        return function (input, format) {
             if (!input || !format) {
                 return input;
             }
 
             format = $numeraljsConfig.format(format);
-
-            if (language) {
-                numeral.language(language);
-            }
 
             return numeral(input).format(format);
         };
