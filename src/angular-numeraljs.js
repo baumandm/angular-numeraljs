@@ -23,7 +23,7 @@ angular.module('ngNumeraljs', [])
 
         this.$get = function () {
             return {
-                format: function (name) {
+                customFormat: function (name) {
                     return formats[name] || name;
                 }
             };
@@ -31,11 +31,11 @@ angular.module('ngNumeraljs', [])
     })
     .filter('numeraljs', function ($numeraljsConfig) {
         return function (input, format) {
-            if (!input || !format) {
+            if (!input) {
                 return input;
             }
 
-            format = $numeraljsConfig.format(format);
+            format = $numeraljsConfig.customFormat(format);
 
             return numeral(input).format(format);
         };

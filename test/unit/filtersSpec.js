@@ -13,9 +13,9 @@ describe('numeraljs', function () {
                 numeraljsFilter = $filter('numeraljs');
             }));
 
-            it('should return the original value if format is missing', function () {
-                expect(numeraljsFilter('1234567890')).toEqual('1234567890');
-                expect(numeraljsFilter('12345', null)).toEqual('12345');
+            it('should return the default formated value if format is missing', function () {
+                expect(numeraljsFilter('1234567890')).toEqual('1,234,567,890');
+                expect(numeraljsFilter('12345', null)).toEqual('12,345');
             });
 
             it('should return value if value is null or undefined', function () {
@@ -52,10 +52,10 @@ describe('numeraljs', function () {
         });
 
         describe('with configuration', function () {
-            describe('setting format string', function () {
-
+            describe('when setting format string', function () {
                 beforeEach(module('ngNumeraljs', function ($numeraljsConfigProvider) {
                     $numeraljsConfigProvider.setFormat('currency', '$ 0,0.00');
+                    $numeraljsConfigProvider.setFormat('currencySuffix', '0,0.00 $');
                 }));
 
                 beforeEach(inject(function ($filter) {
@@ -64,9 +64,23 @@ describe('numeraljs', function () {
 
                 it('should use configured format string', function () {
                     expect(numeraljsFilter('1024.344', 'currency')).toEqual('$ 1,024.34');
+                    expect(numeraljsFilter('1024.344', 'currencySuffix')).toEqual('1,024.34 $');
                 });
             });
 
+            describe('when setting default format', function () {
+                beforeEach(module('ngNumeraljs', function ($numeraljsConfigProvider) {
+                    $numeraljsConfigProvider.setDefaultFormat('0.0 $');
+                }));
+
+                beforeEach(inject(function ($filter) {
+                    numeraljsFilter = $filter('numeraljs');
+                }));
+
+                it('should use default format string', function () {
+                    expect(numeraljsFilter('1024.344')).toEqual('1024.3 $');
+                });
+            });
         });
     });
 });
