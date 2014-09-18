@@ -81,6 +81,55 @@ describe('numeraljs', function () {
                     expect(numeraljsFilter('1024.344')).toEqual('1024.3 $');
                 });
             });
+
+            describe('when setting language', function () {
+                beforeEach(module('ngNumeraljs', function ($numeraljsConfigProvider) {
+                    var language = {
+                        delimiters: {
+                            thousands: ' ',
+                            decimal: ','
+                        },
+                        abbreviations: {
+                            thousand: 'k',
+                            million: 'm',
+                            billion: 'b',
+                            trillion: 't'
+                        },
+                        ordinal: function (number) {
+                            return '.';
+                        },
+                        currency: {
+                            symbol: '€'
+                        }
+                    };
+
+                    $numeraljsConfigProvider.setLanguage('de', language);
+                }));
+
+                describe('without switching', function () {
+                    beforeEach(inject(function ($filter) {
+                        numeraljsFilter = $filter('numeraljs');
+                    }));
+
+                    it('should use default (en) settings', function () {
+                        expect(numeraljsFilter('1024.344', '$ 0,0.00')).toEqual('$ 1,024.34');
+                    });
+                });
+
+                describe('with switch to language', function () {
+                    beforeEach(module('ngNumeraljs', function ($numeraljsConfigProvider) {
+                        $numeraljsConfigProvider.setCurrentLanguage('de');
+                    }));
+
+                    beforeEach(inject(function ($filter) {
+                        numeraljsFilter = $filter('numeraljs');
+                    }));
+
+                    it('should use set (de) settings', function () {
+                        expect(numeraljsFilter('1024.344', '$ 0,0.00')).toEqual('€ 1 024,34');
+                    });
+                });
+            });
         });
     });
 });
