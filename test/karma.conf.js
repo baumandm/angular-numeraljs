@@ -1,6 +1,6 @@
 module.exports = function(config) {
     config.set({
-     
+
         // base path, that will be used to resolve files and exclude
         basePath: './..',
 
@@ -12,7 +12,6 @@ module.exports = function(config) {
             'test/lib/angular/angular.js',
             'test/lib/angular/angular-mocks.js',
             'test/lib/numeral.js',
-            'test/lib/de.js',
             'src/*.js',
             'test/unit/*.js'
         ],
