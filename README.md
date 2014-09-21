@@ -8,27 +8,26 @@ This is an Angular.js filter that applies [Numeral.js](http://numeraljs.com/) fo
 
 2. Include either the minified or non-minified javascript file from the `/dist/` folder:
 
-```html
+    ```html
     <script src="angular-numeraljs.js"></script>
-```
+    ```
 
 3. Inject the `ngNumeraljs` filter into your app module:
 
-```javascript
-var myApp = angular.module('myApp', ['ngNumeraljs']);
-```
+    ```javascript
+    var myApp = angular.module('myApp', ['ngNumeraljs']);
+    ```
 
-4. Apply the filter:
-
-```html
+4. Apply the filter with the desired format string:
+    ```html
     <p>
         {{ price | numeraljs:'$0,0.00' }}
     </p>
-```
+    ```
 
 ## Advanced Usage
 
-You can configure `ngNumberaljs` before actual usage with few options available.
+You can configure `ngNumeraljs` during Angular's configuration phase using the $numeraljsConfigProvider:
 
 ```js
 var app = angular.module('exampleApp', ['ngNumeraljs']);
@@ -38,9 +37,11 @@ app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
 }]);
 ```
 
-### Set formatters
+Numeral.js must be already loaded in the browser prior to using `$numeraljsConfigProvider`.
 
-`$numeraljsConfigProvider.setFormat(name, formatString)` - allows to define a named format, that can be used during formatting.
+### Named Formats
+
+`$numeraljsConfigProvider.setFormat(name, formatString)` - defines a named format which can be used in place of the format string in the filter.
 
 ```js
 app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
@@ -51,14 +52,16 @@ app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
 In markup,
 
 ```html
-    <p>
-        {{ price | numeraljs:'currency' }}
-    </p>
+<p>
+    {{ price | numeraljs:'currency' }}
+</p>
 ```
 
-### Set default format
+### Default Format
 
-`$numeraljsConfigProvider.setDefaultFormat(format)` - allows to define default format, one that is used if format is not specified.
+Numeral.js defines the default format as '0,0', so this format is used if none is provided to the filter.
+
+`$numeraljsConfigProvider.setDefaultFormat(format)` - overrides the built-in default format.
 
 ```js
 app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
@@ -69,14 +72,14 @@ app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
 In markup,
 
 ```html
-    <p>
-        {{ price | numeraljs }}     <!-- will produce 15.5 $ -->
-    </p>
+<p>
+    {{ price | numeraljs }}     <!-- will produce 15.5 $ -->
+</p>
 ```
 
-### Set language definition
+### Custom Languages
 
-`$numeraljsConfigProvider.setLanguage(langId, definition)` - allows to add language definition. Check out already available [languages](https://github.com/adamwdraper/Numeral-js/tree/master/languages).
+`$numeraljsConfigProvider.setLanguage(langId, definition)` - adds new language definitions to Numeral.js. See the available list here: [languages](https://github.com/adamwdraper/Numeral-js/tree/master/languages).  
 
 ```js
 app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
@@ -103,9 +106,11 @@ app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
 }]);
 ```
 
-### Set current language
+Languages can be loaded directly into Numeral.js as well, e.g. by loading the [language files](https://github.com/adamwdraper/Numeral-js/tree/master/languages) after Numeral.js is loaded.  Angular-numeraljs can use these languages even if they are not set via this provider.
 
-`$numeraljsConfigProvider.setCurrentLanguage(langId)` - allows to set currently used language.
+### Select Language
+
+`$numeraljsConfigProvider.setCurrentLanguage(langId)` - selects the current language.  The language must be loaded either by `$numeraljsConfigProvider.setLanguage()` or by loading the Numeral.js language file.
 
 ```js
 app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
@@ -137,4 +142,9 @@ This filter can be installed via Bower with the following dependency in the `bow
 
         grunt build
 
-The `/dist/' folder contains the regular and minified Javascript files.
+    The `/dist/` folder contains the regular and minified Javascript files.
+
+4. Tests are automatically run during the build, but they can be run manually as well
+
+        grunt test
+
