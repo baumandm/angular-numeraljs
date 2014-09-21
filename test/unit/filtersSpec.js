@@ -32,6 +32,12 @@ describe('numeraljs filter', function () {
             expect(numeraljsFilter('1230974', '0.0a')).toEqual('1.2m');
         });
 
+        if('should format zeros as numbers', function () {
+            expect(numeraljsFilter(0, '0,0')).toEqual('0');
+            expect(numeraljsFilter(0, '0.0')).toEqual('0.0');
+            expect(numeraljsFilter(0, '$0.00')).toEqual('$0.00');
+        });
+
         it('should format numbers as numbers', function () {
             expect(numeraljsFilter(1024.34, '0.0')).toEqual('1024.3');
             expect(numeraljsFilter(1024.38, '0.0')).toEqual('1024.4');
