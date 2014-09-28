@@ -130,7 +130,23 @@ This filter can be installed via Bower with the following dependency in the `bow
         "angular-numeraljs": "^1.0"
     }
 
-## Building
+## Browserify
+
+This project is published in NPM as `angular-numeraljs`.
+
+    "dependencies": {
+        "angular-numeraljs": "^1.0"
+    }
+
+The `example/browserify` folder has a working example with Browserify and Grunt.  To build this project, install [Grunt](http://gruntjs.com/) and [Browserify](http://browserify.org/) and run the following:
+    
+    cd example/browserify
+    npm install
+    grunt build
+
+Then open `example/browserify/dist/index.html` in a browser.
+
+# Building
 
 1. Install [Grunt CLI](http://gruntjs.com/getting-started) and [Node.js](http://nodejs.org/)
 
