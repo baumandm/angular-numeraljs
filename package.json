@@ -1,31 +1,34 @@
 {
-    "name": "angular-numeraljs",
-    "description": "AngularJS filter for Numeral.js: number formatting as a filter",
-    "version": "1.1.0",
-    "homepage": "https://github.com/baumandm/angular-numeraljs",
-    "author": "Dave Bauman <baumandm@gmail.com>",
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:baumandm/angular-numeraljs.git"
-    },
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "http://mit-license.org"
-        }
-    ],
-    "dependencies": {},
-    "devDependencies": {
-        "karma": "~ 0.10.0",
-        "grunt": ">= 0.4.0",
-        "grunt-karma": "~ 0.6.0",
-        "grunt-contrib-concat": "*",
-        "grunt-contrib-jshint": "*",
-        "grunt-contrib-uglify": "*",
-        "karma-jasmine": "*",
-        "karma-phantomjs-launcher": "0.1.0"
-    },
-    "scripts": {
-        "test": "grunt karma:unit"
+  "name": "angular-numeraljs",
+  "description": "AngularJS filter for Numeral.js: number formatting as a filter",
+  "version": "1.1.4",
+  "homepage": "https://github.com/baumandm/angular-numeraljs",
+  "author": "Dave Bauman <baumandm@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:baumandm/angular-numeraljs.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://mit-license.org"
     }
+  ],
+  "dependencies": {
+    "numeral": "~1.5"
+  },
+  "devDependencies": {
+    "karma": "~ 0.10.0",
+    "grunt": ">= 0.4.0",
+    "grunt-karma": "~ 0.6.0",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "karma-jasmine": "*",
+    "karma-phantomjs-launcher": "0.1.0",
+    "grunt-commonjs": "~0.2.0-rc7"
+  },
+  "scripts": {
+    "test": "grunt karma:unit"
+  }
 }
