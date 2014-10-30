@@ -31,7 +31,7 @@ angular.module('ngNumeraljs', [])
     })
     .filter('numeraljs', function ($numeraljsConfig) {
         return function (input, format) {
-            if (!input) {
+            if (input == null) {
                 return input;
             }
 
