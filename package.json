@@ -24,9 +24,10 @@
     "grunt-contrib-concat": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
+    "grunt-commonjs": "*",
+    "grunt-ng-annotate": "*",
     "karma-jasmine": "*",
-    "karma-phantomjs-launcher": "0.1.0",
-    "grunt-commonjs": "~0.2.0-rc7"
+    "karma-phantomjs-launcher": "0.1.0"
   },
   "scripts": {
     "test": "grunt karma:unit"

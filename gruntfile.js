@@ -32,6 +32,16 @@ module.exports = function(grunt) {
                 dest: '<%= dirs.dest %>/<%= pkg.name %>.js'
             }
         },
+        ngAnnotate: {
+            options: {
+                singleQuotes: true
+            },
+            dist: {
+                files: {
+                    '<%= dirs.dest %>/<%= pkg.name %>.js': ['<%= dirs.dest %>/<%= pkg.name %>.js']
+                }
+            }
+        },
         uglify: {
             options: {
                 banner: '<%= meta.banner %>'
@@ -64,7 +74,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-
         karma: {
             unit: {
                 singleRun: true,
@@ -77,9 +86,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-ng-annotate');
     grunt.loadNpmTasks('grunt-karma');
-
-
 
     // Default task.
     grunt.registerTask('default', ['test']);
@@ -88,7 +96,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['jshint', 'karma:unit']);
 
     // Build task.
-    grunt.registerTask('build', ['test', 'concat', 'uglify', 'commonjs']);
+    grunt.registerTask('build', ['test', 'concat', 'ngAnnotate', 'uglify', 'commonjs']);
 
     // run devserver
     grunt.registerTask('webserver', ['connect:devserver']);

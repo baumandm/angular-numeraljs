@@ -29,7 +29,7 @@ angular.module('ngNumeraljs', [])
             };
         };
     })
-    .filter('numeraljs', ['$numeraljsConfig', function ($numeraljsConfig) {
+    .filter('numeraljs', function ($numeraljsConfig) {
         return function (input, format) {
             if (!input) {
                 return input;
@@ -39,4 +39,4 @@ angular.module('ngNumeraljs', [])
 
             return numeral(input).format(format);
         };
-    }]);
+    });
