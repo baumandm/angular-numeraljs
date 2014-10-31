@@ -24,6 +24,7 @@
     "grunt-contrib-concat": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
+    "grunt-es6-transpiler": "*",
     "grunt-commonjs": "*",
     "grunt-ng-annotate": "*",
     "karma-jasmine": "*",

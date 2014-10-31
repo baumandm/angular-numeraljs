@@ -2,6 +2,8 @@
 
 This is an Angular.js filter that applies [Numeral.js](http://numeraljs.com/) formatting.
 
+This experimental branch is for ES6 and is transpiled to ES5-compatible Javascript.  However, it requires [es6-shim](https://github.com/paulmillr/es6-shim) to be run in a non-ES6-compatible environment.
+
 ## How to Use
 
 1. Include Numeral.js in your project

@@ -16,11 +16,54 @@ module.exports = function(grunt) {
         dirs: {
             dest: 'dist'
         },
-        commonjs: {
-            modules: {
-                cwd: 'dist/',
+        jshint: {
+            files: ['gruntfile.js', 'transpiled/*.js', 'test/unit/*.js'],
+            options: {
+                bitwise: true,
+                boss: true,
+                browser: true,
+                camelcase: true,
+                curly: true,
+                eqeqeq: true,
+                eqnull: true,
+                esnext: true,
+                expr: true,
+                freeze: true,
+                immed: true,
+                lastsemic: true,
+                latedef: true,
+                newcap: true,
+                noarg: true,
+                node: true,
+                quotmark: 'single',
+                strict: true,
+                sub: true,
+                undef: true,
+                unused: true,
+                globals: {
+                    exports: true,
+                    angular: false,
+                    $: false
+                }
+            }
+        },
+        es6transpiler: {
+            options: {
+                'globals': {
+                    'angular': false
+                }
+            },
+            dist: {
+                cwd: 'src/',
                 src: ['*.js'],
-                dest: 'commonjs/'
+                dest: 'transpiled/',
+                expand: true
+            }
+        },
+        karma: {
+            unit: {
+                singleRun: true,
+                configFile: 'test/karma.conf.js'
             }
         },
         concat: {
@@ -28,7 +71,7 @@ module.exports = function(grunt) {
                 banner: '<%= meta.banner %>'
             },
             dist: {
-                src: ['src/*.js'],
+                src: ['transpiled/*.js'],
                 dest: '<%= dirs.dest %>/<%= pkg.name %>.js'
             }
         },
@@ -51,39 +94,11 @@ module.exports = function(grunt) {
                 dest: '<%= dirs.dest %>/<%= pkg.name %>.min.js'
             }
         },
-        jshint: {
-            files: ['Gruntfile.js', 'src/*.js', 'test/unit/*.js'],
-            options: {
-                bitwise: true,
-                boss: true,
-                browser: true,
-                camelcase: true,
-                curly: true,
-                eqeqeq: true,
-                eqnull: true,
-                expr: true,
-                freeze: true,
-                immed: true,
-                latedef: true,
-                newcap: true,
-                noarg: true,
-                node: true,
-                quotmark: 'single',
-                strict: true,
-                sub: true,
-                undef: true,
-                unused: true,
-                globals: {
-                    exports: true,
-                    angular: false,
-                    $: false
-                }
-            }
-        },
-        karma: {
-            unit: {
-                singleRun: true,
-                configFile: 'test/karma.conf.js'
+        commonjs: {
+            modules: {
+                cwd: 'dist/',
+                src: ['*.js'],
+                dest: 'commonjs/'
             }
         }
     });
@@ -92,6 +107,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-es6-transpiler');
     grunt.loadNpmTasks('grunt-ng-annotate');
     grunt.loadNpmTasks('grunt-karma');
 
@@ -99,7 +115,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['test']);
 
     // Test tasks.
-    grunt.registerTask('test', ['jshint', 'karma:unit']);
+    grunt.registerTask('test', ['es6transpiler', 'jshint', 'karma:unit']);
 
     // Build task.
     grunt.registerTask('build', ['test', 'concat', 'ngAnnotate', 'uglify', 'commonjs']);

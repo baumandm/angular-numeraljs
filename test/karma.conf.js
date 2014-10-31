@@ -9,10 +9,11 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
+            'test/lib/es6-shim.js',
             'test/lib/angular/angular.js',
             'test/lib/angular/angular-mocks.js',
             'test/lib/numeral.js',
-            'src/*.js',
+            'transpiled/*.js',
             'test/unit/*.js'
         ],
 

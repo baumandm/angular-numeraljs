@@ -3,34 +3,28 @@
 
 angular.module('ngNumeraljs', [])
     .provider('$numeraljsConfig', function () {
-        var formats = {};
+        const formats = new Map();
 
-        this.setFormat = function (name, format) {
-            formats[name] = format;
-        };
+        this.setFormat = (name, format) =>
+            formats.set(name, format);
 
-        this.setDefaultFormat = function (format) {
+        this.setDefaultFormat = (format) =>
             numeral.defaultFormat(format);
-        };
 
-        this.setLanguage = function (lang, def) {
+        this.setLanguage = (lang, def) =>
             numeral.language(lang, def);
-        };
 
-        this.setCurrentLanguage = function (lang) {
+        this.setCurrentLanguage = (lang) =>
             numeral.language(lang);
-        };
 
-        this.$get = function () {
+        this.$get = () => {
             return {
-                customFormat: function (name) {
-                    return formats[name] || name;
-                }
+                customFormat: (name) => formats.get(name) || name
             };
         };
     })
-    .filter('numeraljs', function ($numeraljsConfig) {
-        return function (input, format) {
+    .filter('numeraljs', ($numeraljsConfig) => {
+        return (input, format) => {
             if (input == null) {
                 return input;
             }
