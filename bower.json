@@ -9,7 +9,7 @@
         "url": "git@github.com:baumandm/angular-numeraljs.git"
     },
     "dependencies": {
-        "numeral": "^1.0"
+        "numeraljs": "~1.5"
     },
     "keywords": [
         "numeral",
