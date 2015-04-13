@@ -1,19 +1,19 @@
 {
-    "name": "angular-numeraljs",
+    "name": "angular-numbro",
     "author": "Dave Bauman",
     "version": "1.1.6",
     "license": "MIT",
-    "main": ["./dist/angular-numeraljs.js"],
+    "main": ["./dist/angular-numbro.js"],
     "repository": {
         "type": "git",
-        "url": "git@github.com:baumandm/angular-numeraljs.git"
+        "url": "git@github.com:baumandm/angular-numbro.git"
     },
     "dependencies": {
-        "numeral": "^1.0"
+        "numbro": "^1.0"
     },
     "keywords": [
-        "numeral",
-        "numeraljs",
+        "numbro",
+        "numbro",
         "angular",
         "angularjs"
     ],

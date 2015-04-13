@@ -1,8 +1,15 @@
-/*global numeral */
+/**
+ * AngularJS filter for Numbro.js: number formatting as a filter
+ * @version v1.1.6 - 2014-10-29
+ * @link https://github.com/baumandm/angular-numbro
+ * @author Dave Bauman <baumandm@gmail.com>
+ * @license MIT License, http://www.opensource.org/licenses/MIT
+ */
+/*global numbro */
 'use strict';
 
-angular.module('ngNumeraljs', [])
-    .provider('$numeraljsConfig', function () {
+angular.module('ngNumbro', [])
+    .provider('$numbroConfig', function () {
         var formats = {};
 
         this.setFormat = function (name, format) {
@@ -10,15 +17,15 @@ angular.module('ngNumeraljs', [])
         };
 
         this.setDefaultFormat = function (format) {
-            numeral.defaultFormat(format);
+            numbro.defaultFormat(format);
         };
 
         this.setLanguage = function (lang, def) {
-            numeral.language(lang, def);
+            numbro.language(lang, def);
         };
 
         this.setCurrentLanguage = function (lang) {
-            numeral.language(lang);
+            numbro.language(lang);
         };
 
         this.$get = function () {
@@ -29,14 +36,14 @@ angular.module('ngNumeraljs', [])
             };
         };
     })
-    .filter('numeraljs', function ($numeraljsConfig) {
+    .filter('numbro', ['$numbroConfig', function ($numbroConfig) {
         return function (input, format) {
             if (input == null) {
                 return input;
             }
 
-            format = $numeraljsConfig.customFormat(format);
+            format = $numbroConfig.customFormat(format);
 
-            return numeral(input).format(format);
+            return numbro(input).format(format);
         };
-    });
+    }]);
