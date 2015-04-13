@@ -1,6 +1,6 @@
 # Angular Numbro.js filter
 
-This is an Angular.js filter that applies [Numbro.js](http://numbro.com/) formatting.
+This is an Angular.js filter that applies [Numbro.js](http://foretagsplatsen.github.io/numbro/) formatting.
 
 ## How to Use
 
@@ -139,7 +139,7 @@ This project is published in NPM as `angular-numbro`.
     }
 
 The `example/browserify` folder has a working example with Browserify and Grunt.  To build this project, install [Grunt](http://gruntjs.com/) and [Browserify](http://browserify.org/) and run the following:
-    
+
     cd example/browserify
     npm install
     grunt build
@@ -163,4 +163,3 @@ Then open `example/browserify/dist/index.html` in a browser.
 4. Tests are automatically run during the build, but they can be run manually as well
 
         grunt test
-
