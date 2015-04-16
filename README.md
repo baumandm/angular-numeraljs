@@ -1,6 +1,6 @@
 # Angular Numbro.js filter
 
-This is an Angular.js filter that applies [Numbro.js](http://foretagsplatsen.github.io/numbro/) formatting.
+This is an Angular.js filter that applies [Numbro.js](http://numbrojs.com/) formatting.
 
 ## How to Use
 
