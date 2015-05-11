@@ -1,52 +1,58 @@
-window.require.define({"angular-numbro": function(exports, require, module) {
-/**
- * AngularJS filter for Numbro.js: number formatting as a filter
- * @version v1.1.6 - 2014-10-29
- * @link https://github.com/baumandm/angular-numbro
- * @author Dave Bauman <baumandm@gmail.com>
- * @license MIT License, http://www.opensource.org/licenses/MIT
- */
-/*global numbro */
-'use strict';
+window.require.define({
+    'angular-numbro': function(exports, require, module) {
+        /**
+         * AngularJS filter for Numbro.js: number formatting as a filter
+         * @version v1.1.7 - 2015-05-11
+         * @link https://github.com/robertbaker/angular-numbro
+         * @author Dave Bauman <baumandm@gmail.com>
+         * @author Robert Baker
+         * @license MIT License, http://www.opensource.org/licenses/MIT
+         */
+        /*global numbro */
+        'use strict';
 
-angular.module('ngNumbro', [])
-    .provider('$numbroConfig', function () {
-        var formats = {};
+        angular.module('ngNumbro', [])
+            .provider('$numbroConfig', function() {
+                var formats = {};
 
-        this.setFormat = function (name, format) {
-            formats[name] = format;
-        };
+                this.setFormat = function(name, format) {
+                    formats[name] = format;
+                };
 
-        this.setDefaultFormat = function (format) {
-            numbro.defaultFormat(format);
-        };
+                this.setDefaultFormat = function(format) {
+                    numbro.defaultFormat(format);
+                };
 
-        this.setLanguage = function (lang, def) {
-            numbro.language(lang, def);
-        };
+                this.setDefaultCurrencyFormat = function(format) {
+                    numbro.defaultCurrencyFormat(format);
+                };
 
-        this.setCurrentLanguage = function (lang) {
-            numbro.language(lang);
-        };
+                this.setLanguage = function(lang, def) {
+                    numbro.language(lang, def);
+                };
 
-        this.$get = function () {
-            return {
-                customFormat: function (name) {
-                    return formats[name] || name;
-                }
-            };
-        };
-    })
-    .filter('numbro', ['$numbroConfig', function ($numbroConfig) {
-        return function (input, format) {
-            if (input == null) {
-                return input;
-            }
+                this.setCurrentLanguage = function(lang) {
+                    numbro.language(lang);
+                };
 
-            format = $numbroConfig.customFormat(format);
+                this.$get = function() {
+                    return {
+                        customFormat: function(name) {
+                            return formats[name] || name;
+                        }
+                    };
+                };
+            })
+            .filter('numbro', ['$numbroConfig', function($numbroConfig) {
+                return function(input, format) {
+                    if (input == null) {
+                        return input;
+                    }
 
-            return numbro(input).format(format);
-        };
-    }]);
-}});
+                    format = $numbroConfig.customFormat(format);
 
+                    return numbro(input).format(format);
+                };
+            }]);
+    }
+});
