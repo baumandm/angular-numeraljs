@@ -12,6 +12,11 @@ angular.module('ngNumbro', [])
         this.setDefaultFormat = function (format) {
             numbro.defaultFormat(format);
         };
+        
+        this.setDefaultCurrencyFormat = function(format) {
+            numbro.defaultCurrencyFormat(format);
+        };
+
 
         this.setLanguage = function (lang, def) {
             numbro.language(lang, def);
