@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Angular-numeraljs Example</title>
-    <meta name="description" content="Browserify example for the Angular-numeraljs module">
+    <title>Angular-numbro Example</title>
+    <meta name="description" content="Browserify example for the Angular-numbro module">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="js/all.js"></script>
 </head>
-<body ng-controller="numeralExample">
+<body ng-controller="numbroExample">
     <style>
         table {
             width: 100%;
@@ -25,7 +25,7 @@
             margin-left: 1rem;
         }
     </style>
-    <h1>Angular-numeraljs Browserify Example</h1>
+    <h1>Angular-numbro Browserify Example</h1>
     <div>
         <label>Test Number: 
             <input type="text" ng-model="number" placeholder="Enter test number here" />
@@ -41,7 +41,7 @@
         <tr ng-repeat='format in formats'>
             <td>{{ format.name }}</td>
             <td>{{ format.format }}</td>
-            <td>{{ number | numeraljs:format.format }}</td>
+            <td>{{ number | numbro:format.format }}</td>
         </tr>
     </table>
 </body>

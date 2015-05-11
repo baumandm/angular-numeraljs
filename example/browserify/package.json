@@ -1,12 +1,12 @@
 {
-  "name": "angular-numeraljs-browserify-sample",
-  "description": "Browserify sample for Angular-numeraljs",
+  "name": "angular-numbro-browserify-sample",
+  "description": "Browserify sample for Angular-numbro",
   "version": "1.1.4",
-  "homepage": "https://github.com/baumandm/angular-numeraljs",
+  "homepage": "https://github.com/baumandm/angular-numbro",
   "author": "Dave Bauman <baumandm@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git@github.com:baumandm/angular-numeraljs.git"
+    "url": "git@github.com:baumandm/angular-numbro.git"
   },
   "licenses": [
     {
@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "napa": "~0.4.1",
-    "angular-numeraljs": "^1.0"
+    "angular-numbro": "^1.0"
   },
   "devDependencies": {
     "grunt": ">= 0.4.0",

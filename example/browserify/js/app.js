@@ -3,12 +3,12 @@
 /* Include Angular via Browserify */
 require('angular/angular');
 
-window.numeral = require('numeral');
-require('angular-numeraljs/dist/angular-numeraljs');
+window.numbro = require('numbro');
+require('angular-numbro/dist/angular-numbro');
 
-var app = angular.module('exampleApp', ['ngNumeraljs']);
+var app = angular.module('exampleApp', ['ngNumbro']);
 
-app.controller('numeralExample', function ($scope) {
+app.controller('numbroExample', function ($scope) {
     $scope.formats = [{
         name: 'Default Format',
     }, {

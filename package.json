@@ -1,12 +1,12 @@
 {
-  "name": "angular-numeraljs",
-  "description": "AngularJS filter for Numeral.js: number formatting as a filter",
+  "name": "angular-numbro",
+  "description": "AngularJS filter for Numbro.js: number formatting as a filter",
   "version": "1.1.6",
-  "homepage": "https://github.com/baumandm/angular-numeraljs",
+  "homepage": "https://github.com/baumandm/angular-numbro",
   "author": "Dave Bauman <baumandm@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git@github.com:baumandm/angular-numeraljs.git"
+    "url": "git@github.com:baumandm/angular-numbro.git"
   },
   "licenses": [
     {
@@ -15,7 +15,7 @@
     }
   ],
   "dependencies": {
-    "numeral": "~1.5"
+    "numbro": "~1.5"
   },
   "devDependencies": {
     "karma": "~0.12",

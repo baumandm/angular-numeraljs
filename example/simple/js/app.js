@@ -1,6 +1,6 @@
-var app = angular.module('exampleApp', ['ngNumeraljs']);
+var app = angular.module('exampleApp', ['ngNumbro']);
 
-app.controller('numeralExample', function ($scope) {
+app.controller('numbroExample', function ($scope) {
     $scope.formats = [{
         name: 'Default Format',
     }, {

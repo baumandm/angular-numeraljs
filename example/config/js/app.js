@@ -1,6 +1,6 @@
-var app = angular.module('exampleApp', ['ngNumeraljs']);
+var app = angular.module('exampleApp', ['ngNumbro']);
 
-app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
+app.config(['$numbroConfigProvider', function ($numbroConfigProvider) {
     var language = {
         delimiters: {
             thousands: ' ',
@@ -20,17 +20,17 @@ app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
         }
     };
 
-    $numeraljsConfigProvider.setDefaultFormat('0,0.00');
+    $numbroConfigProvider.setDefaultFormat('0,0.00');
 
-    $numeraljsConfigProvider.setFormat('currency', '$ 0,0.00');
-    $numeraljsConfigProvider.setFormat('currencySuffix', '0,0.00 $');
-    $numeraljsConfigProvider.setFormat('number', '0.00');
-    $numeraljsConfigProvider.setLanguage('de', language);
+    $numbroConfigProvider.setFormat('currency', '$ 0,0.00');
+    $numbroConfigProvider.setFormat('currencySuffix', '0,0.00 $');
+    $numbroConfigProvider.setFormat('number', '0.00');
+    $numbroConfigProvider.setLanguage('de', language);
 
-    $numeraljsConfigProvider.setCurrentLanguage('de');
+    $numbroConfigProvider.setCurrentLanguage('de');
 }]);
 
-app.controller('numeralExample', function ($scope) {
+app.controller('numbroExample', function ($scope) {
     $scope.formats = [{
         name: 'Default Format',
     }, {

@@ -1,16 +1,16 @@
 {
-    "name": "angular-numeraljs-bower-example",
+    "name": "angular-numbro-bower-example",
     "author": "Dave Bauman",
     "version": "1.1.6",
     "license": "MIT",
-    "main": ["./dist/angular-numeraljs.js"],
+    "main": ["./dist/angular-numbro.js"],
     "repository": {
         "type": "git",
-        "url": "git@github.com:baumandm/angular-numeraljs.git"
+        "url": "git@github.com:baumandm/angular-numbro.git"
     },
     "dependencies": {
         "angularjs": "v1.3.14",
-        "angular-numeraljs": "^1.0"
+        "angular-numbro": "^1.0"
     },
     "ignore": [
         "src",
