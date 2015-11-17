@@ -30,6 +30,6 @@
     "phantomjs": "~1.9"
   },
   "scripts": {
-    "test": "grunt karma:unit"
+    "test": "grunt test"
   }
 }
