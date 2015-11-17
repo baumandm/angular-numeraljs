@@ -1,9 +1,9 @@
 {
     "name": "angular-numeraljs-bower-example",
     "author": "Dave Bauman",
-    "version": "1.1.6",
+    "version": "1.2.0",
     "license": "MIT",
-    "main": ["./dist/angular-numeraljs.js"],
+    "private": true,
     "repository": {
         "type": "git",
         "url": "git@github.com:baumandm/angular-numeraljs.git"

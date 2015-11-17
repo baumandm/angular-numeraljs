@@ -150,4 +150,21 @@ describe('numeraljs filter', function () {
             });
         });
     });
+
+    describe('with runtime configuration', function () {
+        var $config;
+
+        describe('when setting default format', function () {
+            beforeEach(inject(function ($filter, $numeraljsConfig) {
+                numeraljsFilter = $filter('numeraljs');
+                $config = $numeraljsConfig;
+            }));
+
+            it('should override the default format', function () {
+                $config.setDefaultFormat('0.0 $');
+                $config.setCurrentLanguage('en');
+                expect(numeraljsFilter('1024.344')).toEqual('1024.3 $');
+            });
+        });
+    });
 });

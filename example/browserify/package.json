@@ -1,7 +1,7 @@
 {
   "name": "angular-numeraljs-browserify-sample",
   "description": "Browserify sample for Angular-numeraljs",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "homepage": "https://github.com/baumandm/angular-numeraljs",
   "author": "Dave Bauman <baumandm@gmail.com>",
   "repository": {

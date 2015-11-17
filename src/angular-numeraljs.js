@@ -25,7 +25,15 @@ angular.module('ngNumeraljs', [])
             return {
                 customFormat: function (name) {
                     return formats[name] || name;
-                }
+                },
+
+                setCurrentLanguage: this.setCurrentLanguage,
+
+                setDefaultFormat: this.setDefaultFormat,
+
+                setFormat: this.setFormat,
+
+                setLanguage: this.setLanguage,
             };
         };
     })

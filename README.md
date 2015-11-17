@@ -118,9 +118,25 @@ app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
 }]);
 ```
 
+### Runtime Configuration
+
+It is possible to change all of the configurations at runtime by injecting `$numeraljsConfig`:
+
+    app.controller('numeralExample', function ($scope, $numeraljsConfig) {
+        $numeraljsConfig.setCurrentLanguage($scope.language);
+    });
+
+This may be useful for websites with a language switcher, saved user preferences, etc.
+
 ## Examples
 
-Check out [example/simple](example/js/app.js) and [example/config](config/js/app.js) for reference.
+There are several examples in the `example/` folder which can be used for reference:
+
+* _Simple_: using this library in the most basic way possible
+* _Config_: using $numeraljsConfigProvider to configure this library
+* _ChangingLanguages_: changing languages (or other properties) at runtime (vs initialization)
+* _Bower_: adding a dependency through Bower
+* _Browserify_: adding a dependency through Browserify
 
 ## Bower
 
