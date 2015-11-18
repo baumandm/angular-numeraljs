@@ -1,5 +1,7 @@
 # Angular Numeral.js filter
 
+[![npm](https://img.shields.io/npm/v/angular-numeraljs.svg)](https://www.npmjs.com/package/angular-numeraljs) [![Build Status](https://travis-ci.org/baumandm/angular-numeraljs.svg?branch=master)](https://travis-ci.org/baumandm/angular-numeraljs)
+
 This is an Angular.js filter that applies [Numeral.js](http://numeraljs.com/) formatting.
 
 ## How to Use
