@@ -16,13 +16,6 @@ module.exports = function(grunt) {
         dirs: {
             dest: 'dist'
         },
-        commonjs: {
-            modules: {
-                cwd: 'dist/',
-                src: ['*.js'],
-                dest: 'commonjs/'
-            }
-        },
         concat: {
             options: {
                 banner: '<%= meta.banner %>'
@@ -88,7 +81,6 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-commonjs');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -102,7 +94,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['jshint', 'karma:unit']);
 
     // Build task.
-    grunt.registerTask('build', ['test', 'concat', 'ngAnnotate', 'uglify', 'commonjs']);
+    grunt.registerTask('build', ['test', 'concat', 'ngAnnotate', 'uglify']);
 
     // run devserver
     grunt.registerTask('webserver', ['connect:devserver']);
