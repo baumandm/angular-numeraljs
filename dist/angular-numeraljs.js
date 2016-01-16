@@ -1,14 +1,27 @@
 /**
  * AngularJS filter for Numeral.js: number formatting as a filter
- * @version v1.2.0 - 2015-11-17
+ * @version v1.2.0 - 2016-01-16
  * @link https://github.com/baumandm/angular-numeraljs
  * @author Dave Bauman <baumandm@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
-/*global numeral */
 'use strict';
 
-angular.module('ngNumeraljs', [])
+(function (root, factory) {
+  if (typeof exports === 'object') {
+    // CommonJS
+    module.exports = factory(require('numeral'));
+  } else if (typeof define === 'function' && define.amd) {
+    // AMD
+    define(['numeral'], function (numeral) {
+      return (root.ngNumeraljs = factory(numeral));
+    });
+  } else {
+    // Global Variables
+    root.ngNumeraljs = factory(root.numeral);
+  }
+}(this, function (numeral) {
+  return angular.module('ngNumeraljs', [])
     .provider('$numeraljsConfig', function () {
         var formats = {};
 
@@ -55,3 +68,4 @@ angular.module('ngNumeraljs', [])
             return numeral(input).format(format);
         };
     }]);
+}));
