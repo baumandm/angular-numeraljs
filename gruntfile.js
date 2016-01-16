@@ -66,9 +66,12 @@ module.exports = function(grunt) {
                 sub: true,
                 undef: true,
                 unused: true,
+                validthis: true,
                 globals: {
                     exports: true,
                     angular: false,
+                    require: false,
+                    define: false,
                     $: false
                 }
             }
