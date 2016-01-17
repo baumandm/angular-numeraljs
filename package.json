@@ -22,7 +22,6 @@
     "grunt-contrib-concat": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-commonjs": "0.2.0-rc7",
     "grunt-ng-annotate": "*",
     "jasmine-core": "~2.3.4",
     "karma-jasmine": "*",
@@ -31,5 +30,6 @@
   },
   "scripts": {
     "test": "grunt test"
-  }
+  },
+  "main": "./src/angular-numeraljs.js"
 }
