@@ -2,11 +2,15 @@
 
 /* Include Angular via Browserify */
 require('angular/angular');
-
-window.numeral = require('numeral');
 require('angular-numeraljs/dist/angular-numeraljs');
 
 var app = angular.module('exampleApp', ['ngNumeraljs']);
+
+app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
+
+    $numeraljsConfigProvider.setDefaultFormat('0,0.00');
+
+}]);
 
 app.controller('numeralExample', function ($scope) {
     $scope.formats = [{
