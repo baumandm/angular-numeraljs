@@ -22,7 +22,7 @@
     "grunt-contrib-concat": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-ng-annotate": "*",
+    "grunt-ng-annotate": "2.0.2",
     "jasmine-core": "~2.3.4",
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "~0.2",
