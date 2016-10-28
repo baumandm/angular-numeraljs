@@ -1,6 +1,6 @@
 /**
  * AngularJS filter for Numeral.js: number formatting as a filter
- * @version v1.2.0 - 2016-01-16
+ * @version v1.3.1 - 2016-10-28
  * @link https://github.com/baumandm/angular-numeraljs
  * @author Dave Bauman <baumandm@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
