@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "numeral": "~1.5"
+    "numeraljs": "~1.5"
   },
   "devDependencies": {
     "karma": "~0.13",
