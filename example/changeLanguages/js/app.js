@@ -2,7 +2,7 @@ var app = angular.module('exampleApp', ['ngNumeraljs']);
 
 app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
     // Load some additional languages
-    $numeraljsConfigProvider.setLanguage('fr', {
+    $numeraljsConfigProvider.register('locale', 'fr', {
         delimiters: {
             thousands: ' ',
             decimal: ','
@@ -21,7 +21,7 @@ app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
         }
     });
 
-    $numeraljsConfigProvider.setLanguage('de', {
+    $numeraljsConfigProvider.register('locale', 'de', {
         delimiters: {
             thousands: ' ',
             decimal: ','
@@ -40,7 +40,7 @@ app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
         }
     });
 
-    $numeraljsConfigProvider.setCurrentLanguage('en');
+    $numeraljsConfigProvider.locale('en');
 }]);
 
 app.controller('numeralExample', function ($scope, $numeraljsConfig) {
@@ -66,7 +66,7 @@ app.controller('numeralExample', function ($scope, $numeraljsConfig) {
     $scope.currentLanguage = 'en';
 
     $scope.$watch('currentLanguage', function (language) {
-        $numeraljsConfig.setCurrentLanguage(language);
+        $numeraljsConfig.locale(language);
     });
 
 
@@ -74,6 +74,6 @@ app.controller('numeralExample', function ($scope, $numeraljsConfig) {
 
     $scope.$watch('defaultFormat', function (format) {
         if (format == null) return;
-        $numeraljsConfig.setDefaultFormat(format);
+        $numeraljsConfig.defaultFormat(format);
     });
 });

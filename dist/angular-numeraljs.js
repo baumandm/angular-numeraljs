@@ -1,6 +1,6 @@
 /**
  * AngularJS filter for Numeral.js: number formatting as a filter
- * @version v1.3.2 - 2016-12-27
+ * @version v2.0.0 - 2017-02-13
  * @link https://github.com/baumandm/angular-numeraljs
  * @author Dave Bauman <baumandm@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -23,49 +23,45 @@
 }(this, function (numeral) {
   return angular.module('ngNumeraljs', [])
     .provider('$numeraljsConfig', function () {
-        var formats = {};
+      var formats = {};
 
-        this.setFormat = function (name, format) {
-            formats[name] = format;
+      this.defaultFormat = function (format) {
+        numeral.defaultFormat(format);
+      };
+
+      this.locale = function (locale) {
+        numeral.locale(locale);
+      };
+
+      this.namedFormat = function (name, format) {
+        formats[name] = format;
+      };
+
+      this.register = function (type, name, def) {
+        numeral.register(type, name, def);
+      };
+
+      this.$get = function () {
+        return {
+          customFormat: function (name) {
+            return formats[name] || name;
+          },
+          defaultFormat: this.defaultFormat,
+          locale: this.locale,
+          register: this.register,
+          namedFormat: this.namedFormat
         };
-
-        this.setDefaultFormat = function (format) {
-            numeral.defaultFormat(format);
-        };
-
-        this.setLanguage = function (lang, def) {
-            numeral.language(lang, def);
-        };
-
-        this.setCurrentLanguage = function (lang) {
-            numeral.language(lang);
-        };
-
-        this.$get = function () {
-            return {
-                customFormat: function (name) {
-                    return formats[name] || name;
-                },
-
-                setCurrentLanguage: this.setCurrentLanguage,
-
-                setDefaultFormat: this.setDefaultFormat,
-
-                setFormat: this.setFormat,
-
-                setLanguage: this.setLanguage,
-            };
-        };
+      };
     })
     .filter('numeraljs', ['$numeraljsConfig', function ($numeraljsConfig) {
-        return function (input, format) {
-            if (input == null) {
-                return input;
-            }
+      return function (input, format) {
+        if (input == null) {
+          return input;
+        }
 
-            format = $numeraljsConfig.customFormat(format);
+        format = $numeraljsConfig.customFormat(format);
 
-            return numeral(input).format(format);
-        };
+        return numeral(input).format(format);
+      };
     }]);
 }));

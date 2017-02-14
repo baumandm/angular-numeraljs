@@ -1,7 +1,7 @@
 var app = angular.module('exampleApp', ['ngNumeraljs']);
 
 app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
-    var language = {
+    var locale = {
         delimiters: {
             thousands: ' ',
             decimal: ','
@@ -20,14 +20,16 @@ app.config(['$numeraljsConfigProvider', function ($numeraljsConfigProvider) {
         }
     };
 
-    $numeraljsConfigProvider.setDefaultFormat('0,0.00');
+    $numeraljsConfigProvider.defaultFormat('0,0.00');
 
-    $numeraljsConfigProvider.setFormat('currency', '$ 0,0.00');
-    $numeraljsConfigProvider.setFormat('currencySuffix', '0,0.00 $');
-    $numeraljsConfigProvider.setFormat('number', '0.00');
-    $numeraljsConfigProvider.setLanguage('de', language);
+    // Add some named formats
+    $numeraljsConfigProvider.namedFormat('currency', '$ 0,0.00');
+    $numeraljsConfigProvider.namedFormat('currencySuffix', '0,0.00 $');
+    $numeraljsConfigProvider.namedFormat('number', '0.00');
 
-    $numeraljsConfigProvider.setCurrentLanguage('de');
+    // Custom locale
+    $numeraljsConfigProvider.register('locale', 'de', locale);
+    $numeraljsConfigProvider.locale('de');
 }]);
 
 app.controller('numeralExample', function ($scope) {
