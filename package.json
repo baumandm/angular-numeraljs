@@ -1,7 +1,7 @@
 {
   "name": "angular-numeraljs",
   "description": "AngularJS filter for Numeral.js: number formatting as a filter",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "homepage": "https://github.com/baumandm/angular-numeraljs",
   "author": "Dave Bauman <baumandm@gmail.com>",
   "repository": {
@@ -13,17 +13,17 @@
   },
   "license": "MIT",
   "dependencies": {
-    "numeral": "~2.0.4"
+    "numeral": ">=2.0.0"
   },
   "devDependencies": {
-    "karma": "1.4.1",
-    "grunt": ">= 1.0.1",
-    "grunt-karma": "2.0.0",
+    "grunt": "~1.0.1",
     "grunt-contrib-concat": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-ng-annotate": "2.0.2",
-    "jasmine-core": "~2.5.2",
+    "grunt-karma": "2.0.0",
+    "grunt-ng-annotate": "~3.0.0",
+    "jasmine-core": "~2.6.1",
+    "karma": "~1.7.0",
     "karma-jasmine": "~1.1.0",
     "karma-phantomjs-launcher": "~1.0.2",
     "phantomjs-prebuilt": "~2.1"
